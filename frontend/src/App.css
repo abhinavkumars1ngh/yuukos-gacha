@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: "Comic Sans MS", cursive;
+}
+
+/* Home screen with image */
+.homeScreen {
+  height: 100vh;
+  background: url("../public/home-bg.png") center center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* glowing anime title */
+.title {
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: white;
+  font-weight: bold;
+
+  animation: glowCycle 3s infinite alternate;
+}
+
+/* glow color cycling */
+@keyframes glowCycle {
+  0% {
+    text-shadow:
+      0 0 10px #ff9de2,
+      0 0 20px #ff9de2;
+  }
+  50% {
+    text-shadow:
+      0 0 10px #9ddcff,
+      0 0 20px #9ddcff;
+  }
+  100% {
+    text-shadow:
+      0 0 10px #ffe89d,
+      0 0 20px #ffe89d;
+  }
+}
+
+/* play button */
+.playBtn {
+  font-size: 18px;
+  padding: 1px 1px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  transition: transform 0.2s;
+}
+
+.playBtn:hover {
+  transform: scale(1.1);
+}
+
+/* fade transition */
+.fadeVideo {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  animation: fadeIn 1.2s ease-out;
+}
+
+/* dissolve text */
+.fadeText {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  text-align: right;
+  color: black;
+  font-size: 36px;
+  white-space: pre-line;
+  opacity: 0;
+  animation: fadeText 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sticker {
+  position: absolute;
+  width: 200px;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.95;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.burst {
+  position: absolute;
+  width: 90px;
+  pointer-events: none;
+  animation: burstUp 1.5s ease-out forwards;
+}
+
+@keyframes burstUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(0.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) scale(1.4);
+  }
+}
